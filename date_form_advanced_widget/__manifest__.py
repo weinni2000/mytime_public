@@ -1,7 +1,7 @@
 {
     "name": "Date Form Advanced Widget",
     "summary": "Adds a website page for the advanced date form widget.",
-    "version": "18.0.1.1.0",
+    "version": "19.0.1.0.0",
     "category": "Website",
     "license": "OPL-1",
     "author": "mytime.click",
