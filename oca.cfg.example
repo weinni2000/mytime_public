@@ -1,0 +1,12 @@
+[GitHub]
+username = your_github_username
+token = your_github_personal_access_token
+
+[odoo]
+username = your_odoo_email
+password = your_odoo_password
+
+[apps.odoo.com]
+username = your_odoo_email
+password = your_odoo_password
+chromedriver_path = /usr/lib/chromium-browser/chromedriver

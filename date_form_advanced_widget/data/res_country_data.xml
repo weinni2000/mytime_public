@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="0">
+    <!-- Mark preferred countries for guest registration (AT, DE, NL, CZ, FR, UK, CH, IT, ES) -->
+    <record id="base.at" model="res.country">
+        <field name="preferred_guest_registration">1</field>
+    </record>
+    <record id="base.de" model="res.country">
+        <field name="preferred_guest_registration">1</field>
+    </record>
+    <record id="base.nl" model="res.country">
+        <field name="preferred_guest_registration">1</field>
+    </record>
+    <record id="base.cz" model="res.country">
+        <field name="preferred_guest_registration">1</field>
+    </record>
+    <record id="base.fr" model="res.country">
+        <field name="preferred_guest_registration">1</field>
+    </record>
+    <record id="base.uk" model="res.country">
+        <field name="preferred_guest_registration">1</field>
+    </record>
+    <record id="base.ch" model="res.country">
+        <field name="preferred_guest_registration">1</field>
+    </record>
+    <record id="base.it" model="res.country">
+        <field name="preferred_guest_registration">1</field>
+    </record>
+    <record id="base.es" model="res.country">
+        <field name="preferred_guest_registration">1</field>
+    </record>
+</odoo>

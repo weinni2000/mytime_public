@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="gaesteregistrierung_page"
+        name="Gästeregistrierung">
+        <t t-call="website.layout">
+            <div id="wrap"
+                class="oe_structure oe_empty">
+                <section class="s_title pt40 pb40 o_colored_level"
+                    data-vcss="001"
+                    data-snippet="s_title"
+                    data-name="Title">
+                    <div class="container s_allow_columns">
+                        <h2 class="display-3-fs"
+                            style="text-align: center;">Gästeregistrierung</h2>
+                    </div>
+                </section>
+                <section class="s_website_form pt16 pb16 o_colored_level"
+                    data-vcss="001"
+                    data-snippet="s_website_form"
+                    data-name="Form">
+                    <div class="container-fluid">
+                        <form action="/website/form/"
+                            method="post"
+                            enctype="multipart/form-data"
+                            class="o_mark_required"
+                            data-mark="*"
+                            data-pre-fill="true"
+                            data-model_name="res.partner"
+                            data-success-mode="redirect"
+                            data-success-page="/contactus-thank-you">
+                            <div class="s_website_form_rows row s_col_no_bgcolor">
+
+                                <!-- Name -->
+                                <div data-name="Field"
+                                    class="s_website_form_field mb-3 col-12 s_website_form_model_required"
+                                    data-type="char">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                            style="width: 200px"
+                                            for="grf_name">
+                                            <span class="s_website_form_label_content">Name</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input class="form-control s_website_form_input"
+                                                type="text"
+                                                name="name"
+                                                required=""
+                                                value=""
+                                                placeholder=""
+                                                id="grf_name"
+                                                data-fill-with="name"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Ausweis -->
+                                <div data-name="Field"
+                                    class="s_website_form_field mb-3 col-12 s_website_form_custom s_website_form_required"
+                                    data-type="binary">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-sm-auto s_website_form_label"
+                                            style="width: 200px"
+                                            for="grf_ausweis">
+                                            <span class="s_website_form_label_content">Ausweis</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input type="file"
+                                                class="form-control s_website_form_input"
+                                                name="Ausweis"
+                                                id="grf_ausweis"
+                                                data-max-files-number="1"
+                                                data-max-file-size="10"
+                                                required=""/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Geschlecht -->
+                                <div data-name="Field"
+                                    class="s_website_form_field mb-3 col-12"
+                                    data-type="selection">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-sm-auto s_website_form_label"
+                                            style="width: 200px">
+                                            <span class="s_website_form_label_content">Geschlecht</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor s_website_form_multiple"
+                                                data-name="gender"
+                                                data-display="horizontal">
+                                                <div class="radio col-12 col-lg-4 col-md-6">
+                                                    <div class="form-check">
+                                                        <input type="radio"
+                                                            class="s_website_form_input form-check-input"
+                                                            id="grf_gender_male"
+                                                            name="gender"
+                                                            value="male"/>
+                                                        <label class="form-check-label s_website_form_check_label"
+                                                            for="grf_gender_male">Male</label>
+                                                    </div>
+                                                </div>
+                                                <div class="radio col-12 col-lg-4 col-md-6">
+                                                    <div class="form-check">
+                                                        <input type="radio"
+                                                            class="s_website_form_input form-check-input"
+                                                            id="grf_gender_female"
+                                                            name="gender"
+                                                            value="female"/>
+                                                        <label class="form-check-label s_website_form_check_label"
+                                                            for="grf_gender_female">Female</label>
+                                                    </div>
+                                                </div>
+                                                <div class="radio col-12 col-lg-4 col-md-6">
+                                                    <div class="form-check">
+                                                        <input type="radio"
+                                                            class="s_website_form_input form-check-input"
+                                                            id="grf_gender_other"
+                                                            name="gender"
+                                                            value="other"/>
+                                                        <label class="form-check-label s_website_form_check_label"
+                                                            for="grf_gender_other">Other</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Land -->
+                                <t t-call="date_form_advanced_widget.country_selection_field_template" />
+
+                                <!-- Email -->
+                                <div data-name="Field"
+                                    class="s_website_form_field mb-3 col-12 s_website_form_required col-lg-6"
+                                    data-type="email">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                            style="width: 200px"
+                                            for="grf_email">
+                                            <span class="s_website_form_label_content">Email</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input class="form-control s_website_form_input"
+                                                type="email"
+                                                name="email"
+                                                required="1"
+                                                data-fill-with="email"
+                                                id="grf_email"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Telefon -->
+                                <div data-name="Field"
+                                    class="s_website_form_field mb-3 col-12 s_website_form_required col-lg-6"
+                                    data-type="tel">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                            style="width: 200px"
+                                            for="grf_phone">
+                                            <span class="s_website_form_label_content">Phone Number</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input class="form-control s_website_form_input"
+                                                type="tel"
+                                                name="phone"
+                                                placeholder=""
+                                                id="grf_phone"
+                                                data-fill-with="phone"
+                                                required=""/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Geburtsdatum -->
+                                <t t-call="date_form_advanced_widget.date_of_birth_field_template" />
+
+                                <!-- Straße -->
+                                <div data-name="Field"
+                                    class="s_website_form_field mb-3 col-12 s_website_form_required"
+                                    data-type="char">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                            style="width: 200px"
+                                            for="grf_street">
+                                            <span class="s_website_form_label_content">Straße</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input class="form-control s_website_form_input"
+                                                type="text"
+                                                name="street"
+                                                value=""
+                                                placeholder=""
+                                                id="grf_street"
+                                                required=""/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- PLZ -->
+                                <div data-name="Field"
+                                    class="s_website_form_field mb-3 col-12 s_website_form_required col-lg-5"
+                                    data-type="char">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                            style="width: 200px"
+                                            for="grf_zip">
+                                            <span class="s_website_form_label_content">PLZ</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input class="form-control s_website_form_input"
+                                                type="text"
+                                                name="zip"
+                                                value=""
+                                                placeholder=""
+                                                id="grf_zip"
+                                                required=""/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Ort -->
+                                <div data-name="Field"
+                                    class="s_website_form_field mb-3 col-12 s_website_form_required col-lg-5"
+                                    data-type="char">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                            style="width: 200px"
+                                            for="grf_city">
+                                            <span class="s_website_form_label_content">Ort</span>
+                                            <span class="s_website_form_mark"> *</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input class="form-control s_website_form_input"
+                                                type="text"
+                                                name="city"
+                                                value=""
+                                                placeholder=""
+                                                id="grf_city"
+                                                required=""/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Check In Date -->
+                                <div data-name="Field"
+                                    class="s_website_form_field mb-3 col-12 s_website_form_custom col-lg-5"
+                                    data-type="date">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                            style="width: 200px"
+                                            for="grf_checkin">
+                                            <span class="s_website_form_label_content">Check In Date</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <div class="s_website_form_date input-group date">
+                                                <input type="text"
+                                                    class="form-control datetimepicker-input s_website_form_input"
+                                                    name="Check In Date"
+                                                    value=""
+                                                    placeholder=""
+                                                    id="grf_checkin"/>
+                                                <div class="input-group-text o_input_group_date_icon cursor-pointer">
+                                                    <i class="fa fa-calendar"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Check Out Date -->
+                                <div data-name="Field"
+                                    class="s_website_form_field mb-3 col-12 s_website_form_custom col-lg-5"
+                                    data-type="date">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                            style="width: 200px"
+                                            for="grf_checkout">
+                                            <span class="s_website_form_label_content">Check Out Date</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <div class="s_website_form_date input-group date">
+                                                <input type="text"
+                                                    class="form-control datetimepicker-input s_website_form_input"
+                                                    name="Check Out Date"
+                                                    value=""
+                                                    placeholder=""
+                                                    id="grf_checkout"/>
+                                                <div class="input-group-text o_input_group_date_icon cursor-pointer">
+                                                    <i class="fa fa-calendar"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Person (2) checkbox -->
+                                <div data-name="Field"
+                                    class="s_website_form_field mb-3 col-12 s_website_form_custom"
+                                    data-type="boolean">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-sm-auto s_website_form_label"
+                                            style="width: 200px"
+                                            for="grf_person2">
+                                            <span class="s_website_form_label_content">Person (2)</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <div class="form-check">
+                                                <input type="checkbox"
+                                                    value="Yes"
+                                                    class="s_website_form_input form-check-input"
+                                                    name="Person (2)"
+                                                    id="grf_person2"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Person (2) conditional fields -->
+                                <div data-name="Field"
+                                    class="s_website_form_field mb-3 col-12 s_website_form_custom s_website_form_field_hidden_if d-none"
+                                    data-type="char"
+                                    data-visibility-dependency="Person (2)"
+                                    data-visibility-condition="Yes"
+                                    data-visibility-comparator="selected">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                            style="width: 200px"
+                                            for="grf_name2">
+                                            <span class="s_website_form_label_content">Name Person (2)</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input class="form-control s_website_form_input"
+                                                type="text"
+                                                name="Name Person (2)"
+                                                value=""
+                                                placeholder=""
+                                                id="grf_name2"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div data-name="Field"
+                                    class="s_website_form_field mb-3 col-12 s_website_form_custom s_website_form_field_hidden_if d-none"
+                                    data-type="many2one"
+                                    data-visibility-dependency="Person (2)"
+                                    data-visibility-condition="Yes"
+                                    data-visibility-comparator="selected">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                            style="width: 200px"
+                                            for="grf_country2">
+                                            <span class="s_website_form_label_content">Country (2)</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select class="form-select s_website_form_input"
+                                                name="Country (2)"
+                                                id="grf_country2">
+                                                <t t-foreach="countries_top"
+                                                    t-as="country">
+                                                    <option t-att-value="country.name"
+                                                        t-att-selected="'selected' if country.code == 'AT' else None">
+                                                        <t t-esc="country.name"/>
+                                                    </option>
+                                                </t>
+                                                <option disabled="disabled">═══════════════</option>
+                                                <t t-foreach="countries_rest"
+                                                    t-as="country">
+                                                    <option t-att-value="country.name"
+                                                        t-att-selected="'selected' if country.code == 'AT' else None">
+                                                        <t t-esc="country.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div data-name="Field"
+                                    class="s_website_form_field mb-3 col-12 s_website_form_custom s_website_form_field_hidden_if d-none"
+                                    data-type="many2one"
+                                    data-visibility-dependency="Person (2)"
+                                    data-visibility-condition="Yes"
+                                    data-visibility-comparator="selected">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                            style="width: 200px"
+                                            for="grf_gender2">
+                                            <span class="s_website_form_label_content">Geschlecht (2)</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select class="form-select s_website_form_input"
+                                                name="Geschlecht (2)"
+                                                id="grf_gender2">
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                                <option value="Other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Separator -->
+                                <div class="col-12">
+                                    <hr/>
+                                </div>
+
+                                <!-- Person (3) checkbox -->
+                                <div data-name="Field"
+                                    class="s_website_form_field mb-3 col-12 s_website_form_custom"
+                                    data-type="boolean">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-sm-auto s_website_form_label"
+                                            style="width: 200px"
+                                            for="grf_person3">
+                                            <span class="s_website_form_label_content">Person (3)</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <div class="form-check">
+                                                <input type="checkbox"
+                                                    value="Yes"
+                                                    class="s_website_form_input form-check-input"
+                                                    name="Person (3)"
+                                                    id="grf_person3"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Person (3) conditional fields -->
+                                <div data-name="Field"
+                                    class="s_website_form_field mb-3 col-12 s_website_form_custom s_website_form_field_hidden_if d-none"
+                                    data-type="char"
+                                    data-visibility-dependency="Person (3)"
+                                    data-visibility-condition="Yes"
+                                    data-visibility-comparator="selected">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                            style="width: 200px"
+                                            for="grf_name3">
+                                            <span class="s_website_form_label_content">Name (3)</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input class="form-control s_website_form_input"
+                                                type="text"
+                                                name="Name (3)"
+                                                value=""
+                                                placeholder=""
+                                                id="grf_name3"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div data-name="Field"
+                                    class="s_website_form_field mb-3 col-12 s_website_form_custom s_website_form_field_hidden_if d-none"
+                                    data-type="many2one"
+                                    data-visibility-dependency="Person (3)"
+                                    data-visibility-condition="Yes"
+                                    data-visibility-comparator="selected">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                            style="width: 200px"
+                                            for="grf_country3">
+                                            <span class="s_website_form_label_content">Country (3)</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select class="form-select s_website_form_input"
+                                                name="Country (3)"
+                                                id="grf_country3">
+                                                <t t-foreach="countries_top"
+                                                    t-as="country">
+                                                    <option t-att-value="country.name"
+                                                        t-att-selected="'selected' if country.code == 'AT' else None">
+                                                        <t t-esc="country.name"/>
+                                                    </option>
+                                                </t>
+                                                <option disabled="disabled">═══════════════</option>
+                                                <t t-foreach="countries_rest"
+                                                    t-as="country">
+                                                    <option t-att-value="country.name"
+                                                        t-att-selected="'selected' if country.code == 'AT' else None">
+                                                        <t t-esc="country.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Submit -->
+                                <div class="mb-0 py-2 col-12 s_website_form_submit text-end s_website_form_no_submit_label"
+                                    data-name="Submit Button">
+                                    <div style="width: 200px;"
+                                        class="s_website_form_label"/>
+                                    <span id="s_website_form_result"/>
+                                    <a href="#"
+                                        role="button"
+                                        class="btn btn-primary s_website_form_send">Absenden</a>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+
+    <template id="country_selection_field_template"
+        name="Country Selection Field">
+        <div data-name="Field"
+            class="s_website_form_field mb-3 col-12"
+            data-type="many2one">
+            <div class="row s_col_no_resize s_col_no_bgcolor">
+                <label class="col-form-label col-sm-auto s_website_form_label"
+                    style="width: 200px"
+                    for="grf_country_id">
+                    <span class="s_website_form_label_content">Land</span>
+                </label>
+                <div class="col-sm">
+                    <select class="form-select s_website_form_input"
+                        name="country_id"
+                        id="grf_country_id">
+                        <t t-foreach="countries_top"
+                            t-as="country">
+                            <option t-att-value="country.id"
+                                t-att-selected="'selected' if country.code == 'AT' else None">
+                                <t t-esc="country.name"/>
+                            </option>
+                        </t>
+                        <option disabled="disabled">═══════════════</option>
+                        <t t-foreach="countries_rest"
+                            t-as="country">
+                            <option t-att-value="country.id"
+                                t-att-selected="'selected' if country.code == 'AT' else None">
+                                <t t-esc="country.name"/>
+                            </option>
+                        </t>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="date_of_birth_field_template"
+        name="Date of Birth Field">
+        <div data-name="Field"
+            class="s_website_form_field mb-3 col-12 s_website_form_required"
+            data-type="date">
+            <div class="row s_col_no_resize s_col_no_bgcolor">
+                <label class="col-form-label col-sm-auto s_website_form_label"
+                    style="width: 200px"
+                    for="grf_birthdate">
+                    <span class="s_website_form_label_content">Geburtsdatum2</span>
+                    <span class="s_website_form_mark"> *</span>
+                </label>
+                <div class="col-sm">
+                    <input type="date"
+                        class="form-control s_website_form_input"
+                        name="birthdate_date"
+                        value=""
+                        id="grf_birthdate"/>
+
+                </div>
+            </div>
+        </div>
+    </template>
+</odoo>
